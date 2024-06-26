@@ -1,0 +1,13 @@
+#topBarContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    width: 100vw;
+    background-color: #f1e1d0;
+    color: rgb(83, 81, 81);
+}
+
+.headerTopBar {
+    margin: 25px;
+}

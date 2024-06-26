@@ -1,0 +1,14 @@
+#mainPageContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+}
+
+#favAndList {
+    flex-grow: 3;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}

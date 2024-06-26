@@ -1,9 +1,29 @@
-
+import PokemonCard from "./PokemonCard";
+import "../style/PokemonList.css";
 
 function PokemonList() {
   return (
     <>
-      {/* Implement the  PokemonList view. Use the PokemonCard component to show each Pokemon in the list */}
+    <div id ="pokemonListContent">
+
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+
+    </div>
+
     </>
   );
 }
