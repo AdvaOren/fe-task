@@ -2,7 +2,7 @@
 import { useContext, useEffect } from "react";
 
 // Styles
-import "./App.css";
+import "../src/style/App.css";
 
 // Components
 import MainPage from "./components/MainPage";

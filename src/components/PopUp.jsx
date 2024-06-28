@@ -13,8 +13,8 @@ import '../style/PopUp.css';
 function PopUp({ text }) {
     return (
         <>
-            <div className="modal fade" id="popUpModal" role="dialog">
-                <div className="popUpContent modal-dialog custom-modal-dialog">
+            <div id="popUpContent">
+                <div id="popUpBox">
                     <span id="popUpText">{text}</span>
                 </div>
             </div>

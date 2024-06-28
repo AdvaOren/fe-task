@@ -28,6 +28,7 @@ function PokemonDetails() {
   
   // State to manage the text displayed in the popup
   const [pokemonCaughtText, setPokemonCaughtText] = useState('');
+  const [isPopUpVisible, setIsPopUpVisible] = useState(false);
 
   const handleCatchAttempt = async () => {
     //handle the attempt to catch a Pokémon.  Displays a popup with the result of the attempt.
@@ -48,17 +49,17 @@ function PokemonDetails() {
       }
     }
     setPokemonCaughtText(popUpText);
-    $('#popUpModal').modal('show');
-    await new Promise(resolve => setTimeout(resolve, 4000));
+    setIsPopUpVisible(true);
+    await new Promise(resolve => setTimeout(resolve, 3500));
+    setIsPopUpVisible(false);
     setPokemonCaughtText('');
-    $('#popUpModal').modal('hide'); // Close Pop Up Modal
   };
 
   return (
     <>
       {pokemonPressed &&
         <>
-          <PopUp text={pokemonCaughtText} />
+           {isPopUpVisible && <PopUp text={pokemonCaughtText} /> }
           <div className="modal fade" id="myModal" role="dialog">
             <div className="modal-dialog custom-modal-dialog">
               <div className="modal-content">

@@ -1,17 +1,26 @@
-.popUpContent {
+#popUpContent {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--gray-opacirt-background);
+    position: fixed;
+    box-shadow: 10px 10px 5px #cfd1d0;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    height: 30vh;
-    width: 30vw !important;
-    background-color: white;
-    border-radius: 10px;
-    font-weight: bold;
+    z-index: 1000;
 }
 
-#popUpModal {
+#popUpBox {
     display: flex;
     justify-content: center;
-    align-items: center;   
+    align-items: center;
+    border-radius: 10px;
+    width: 40vw;
+    height: 30vh;
+    background-color: white;
+    text-align: center;
 }
+
+
