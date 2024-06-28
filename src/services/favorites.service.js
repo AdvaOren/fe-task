@@ -6,11 +6,15 @@ const CAUGHT_POKEMONS_KEY = 'favorites';
  * @returns {Promise<Array>} - A promise that resolves to an array of favorite Pokémon.
  */
 export async function getFavorites() {
-  return new Promise((resolve) => {
-    const favorites = localStorage.getItem(CAUGHT_POKEMONS_KEY);
-    setTimeout(() => {
-      resolve(JSON.parse(favorites) || []);
-    }, 500); // Simulate a delay for asynchronous behavior
+  return new Promise((resolve, reject) => {
+    try {
+      const favorites = localStorage.getItem(CAUGHT_POKEMONS_KEY);
+      setTimeout(() => {
+        resolve(JSON.parse(favorites) || []);
+      }, 500); // Simulate a delay for asynchronous behavior
+    } catch (error) {
+      reject(new Error('Failed to retrieve favorites from localStorage'));
+    }
   });
 }
 
@@ -21,12 +25,13 @@ export async function getFavorites() {
  * @returns {Promise<void>}
  */
 export async function addFavorite(pokemon) {
-  const caughtPokemons = await getFavorites();
-  if (caughtPokemons.length === 0) {
-    localStorage.setItem(CAUGHT_POKEMONS_KEY, JSON.stringify([pokemon]));
-    return;
+  try {
+    const caughtPokemons = await getFavorites();
+    const updatedCaughtPokemons = caughtPokemons.length === 0 ? [pokemon] : [...caughtPokemons, pokemon];
+    localStorage.setItem(CAUGHT_POKEMONS_KEY, JSON.stringify(updatedCaughtPokemons));
+  } catch (error) {
+    throw new Error('Failed to add favorite Pokémon');
   }
-  localStorage.setItem(CAUGHT_POKEMONS_KEY, JSON.stringify([...caughtPokemons, pokemon]));
 }
 
 /**
@@ -37,13 +42,17 @@ export async function addFavorite(pokemon) {
  * @returns {boolean} - True if the Pokémon is a favorite, false otherwise.
  */
 export async function isFavorite(pokemon, favList) {
-  if (!favList) return false;
-  for (let i = 0; i < favList.length; i++) {
-    if (favList[i].id === pokemon.id) {
-      return true;
+  try {
+    if (!favList) return false;
+    for (let i = 0; i < favList.length; i++) {
+      if (favList[i].id === pokemon.id) {
+        return true;
+      }
     }
+    return false;
+  } catch (error) {
+    throw new Error('Failed to check if Pokémon is a favorite');
   }
-  return false;
 }
 
 /**
@@ -53,7 +62,11 @@ export async function isFavorite(pokemon, favList) {
  * @returns {Promise<void>}
  */
 export const removeCaughtPokemon = async (pokemonId) => {
-  const caughtPokemons = await getFavorites();
-  const updatedCaughtPokemons = caughtPokemons.filter(pokemon => pokemon.id !== pokemonId);
-  localStorage.setItem(CAUGHT_POKEMONS_KEY, JSON.stringify(updatedCaughtPokemons));
+  try {
+    const caughtPokemons = await getFavorites();
+    const updatedCaughtPokemons = caughtPokemons.filter(pokemon => pokemon.id !== pokemonId);
+    localStorage.setItem(CAUGHT_POKEMONS_KEY, JSON.stringify(updatedCaughtPokemons));
+  } catch (error) {
+    throw new Error('Failed to remove caught Pokémon');
+  }
 };
