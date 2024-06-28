@@ -1,0 +1,9 @@
+:root {
+    --red-color: #EF5350;
+    --low-red-color: #ef5350b6;
+    --gray-background-color: #FFFFFF;
+    --red-color-opacity: rgba(56, 97, 157, 0.25); /* Define your blue color with opacity */
+    --blue-color: #345ea2;
+    --text-color: #454444;
+    --yellow-color: #f4c61c;
+  }

@@ -1,0 +1,75 @@
+#pokemovInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+
+}
+
+#pokemovInfo h2, .modal-title {
+    font-weight: bold;
+    color: var(--blue-color);
+    
+    
+}
+.modal-footer{
+    display: flex;
+    justify-content: center;
+}
+
+#pokemonDetailsContent img{
+    width: 20vw;
+    object-fit: contain;
+}
+
+#details {
+    width: 55vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+#details p{
+    margin-bottom: 15px;
+}
+
+#details span {
+    color: var(--blue-color);
+    margin: 0.3vw;
+    border: 1px solid var(--blue-color);
+    border-radius: 5px;
+    padding: 2px;
+    height: auto;
+    width: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); 
+    background-color: var(--blue-color-opacity);
+    padding-left: 5px;
+    padding-right: 5px;
+
+
+
+
+}
+
+.custom-modal-dialog {
+  width: 75vw; 
+}
+
+.custom-modal-content {
+  width: 100%; /* Ensure content takes the full width of the dialog */
+}
+
+.infoBlocks {
+    display: flex;
+    flex-wrap: wrap;
+    width: 15vw;
+}
+
+#pokBackground {
+    width: 15vw !important;
+    z-index: 0;
+}
+#pok {
+    position: absolute;
+    width: 13vw !important;
+    z-index: 1;
+    margin-right:auto
+}

@@ -1,14 +1,18 @@
-.pokemonCard {
-    text-align: center;
-}
+@import './colors.css';
 
 #FavoritesSideBarContent {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 20vw;
+    width:30vw;
     height: 100%;
+    color: var(--text-color);
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#FavoritesSideBarContent .pokemonCardImage {
+    width: 5vw;
 }
 
 #searchInput {
@@ -23,20 +27,25 @@
 }
 
 #searchButton{
-    border: none;       
-    outline: none;   
-    width: 25%;
-    height: 3vh;
-    background-color: #f9e6df;
+    border: 5px solid var(--blue-color); /* Set border width, style, and color */
+    outline: none;
+    width: auto;
+    height: auto;
+    background-color: white;
     border-radius: 5px;
-    transition: background-color 0.3s ease; /* Add transition for hover effect */
-}
-/* Add hover effect */
-#searchButton:hover {
-    background-color: #0056b3; /* Change background color on hover */
+    border-width: 1px;
+    transition: background-color 0.3s ease; 
+    color: var(--blue-color);
+    text-align: center;
+    margin: auto;
 }
 
-/* Add focus effect */
+#searchButton:hover {
+    background-color: var(--blue-color); 
+    color: white;
+}
+
+
 #searchButton:focus {
     outline: none; /* Ensure no outline on focus */
 }
@@ -45,7 +54,53 @@
     display: flex;
     flex-direction: row;
     margin: 15px;   
-    align-items: center;
+}
 
+#favoriteListContent {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.pokemonAndBtn {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.removePokemon {
+    border: none;       
+    outline: none;   
+    width: auto ;
+    height: auto;
+    background-color: var(--red-color);
+    border-radius: 5px;
+    transition: background-color 0.1s ease; 
+    color: white;
+    text-align: center;
+    margin: auto;
+}
+
+.removePokemon:hover {
+    background-color: var(--low-red-color);
+}
+
+/* WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 5px;  /* Width of the scrollbar */
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;  /* Background of the track */
+    border-radius: 10px;  /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;  /* Color of the thumb */
+    border-radius: 10px;  /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;  /* Color of the thumb on hover */
 }

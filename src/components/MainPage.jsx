@@ -2,19 +2,21 @@ import TopBar from "./TopBar";
 import FavoritesSideBar from "./FavoritesSideBar";
 import PokemonList from "./PokemonList";
 import '../style/MainPage.css';
+import PokemonDetails from "./PokemonDetails";
+// import CaughtModal from "./CatchPokemon";
 
 function MainPage() {
     return (
         <>
             <div id="mainPageContent">
-                <div style={{ flexGrow: 3 }} >
-                    <TopBar />
-                </div>
+                <TopBar />
                 <div id="favAndList">
                     <FavoritesSideBar />
                     <PokemonList />
                 </div>
-            </div >
+            </div>
+            <PokemonDetails />
+            {/* <CaughtModal /> */}
         </>
     );
 }
