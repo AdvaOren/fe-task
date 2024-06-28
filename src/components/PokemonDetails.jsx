@@ -9,7 +9,7 @@ import { addFavorite } from "../services/favorites.service";
 import { attemptCatch, removePokemon } from './CatchPokemon.jsx';
 
 // Assets
-import circleBackground from '../assets/circle.jpg';
+import circleBackground from '../assets/circleBackground.png';
 
 // Components
 import PopUp from "./PopUp.jsx";

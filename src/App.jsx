@@ -21,7 +21,7 @@ import { AuthContext } from "./AuthContext";
  * @returns {JSX.Element} - The JSX code to render the main application.
  */
 function App() {
-  const { setPokemonListFun, setFavListFun, setDataIsReadyFun } = useContext(AuthContext);
+  const { setPokemonListFun, setFavListFun, setDataIsReadyFun, setFilteredFavListFun } = useContext(AuthContext);
 
   useEffect(() => {
     (async()=>{
@@ -50,6 +50,7 @@ function App() {
         const favList = await getFavorites();
         if (favList) {  
           setFavListFun(favList);
+          setFilteredFavListFun(favList);
         }
       }
       await getPokemonsDet();

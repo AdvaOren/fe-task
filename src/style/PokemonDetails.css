@@ -20,7 +20,7 @@
 }
 
 #details {
-    width: 55vw;
+    width: auto;
     display: flex;
     justify-content: space-between;
 }
@@ -58,7 +58,7 @@
 }
 
 #pokBackground {
-    width: 15vw !important;
+    width: 20vw !important;
     z-index: 0;
 }
 

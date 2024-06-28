@@ -21,12 +21,16 @@ function AuthProvider({ children }) {
     const [pokemonPressed, setPokemonPressed] = useState();
     // State to indicate if the data is ready
     const [dataIsReady, setDataIsReady] = useState(false);
+    // State for the list of filtered favorite Pokémon
+    const [filteredFavList, setFilteredFavList] = useState([]);
 
     // Setters functions
     const setDataIsReadyFun = (bool) => { setDataIsReady(bool) };
     const setPokemonListFun = (list) => { setPokemonsList(list) };
     const setFavListFun = (list) => { setFavList(list) };
     const setPokemonPressedFun = (pokemon) => { setPokemonPressed(pokemon) };
+    const setFilteredFavListFun = (list) => { setFilteredFavList(list) };
+
 
     /**
      * addItemToFavList
@@ -69,7 +73,7 @@ function AuthProvider({ children }) {
         <AuthContext.Provider value={{
             incrementCatchAttempts, removeItemFromFavList, setPokemonListFun,
             pokemonsList, favList, setFavListFun, pokemonPressed, setPokemonPressedFun,
-            addItemToFavList, dataIsReady, setDataIsReadyFun
+            addItemToFavList, dataIsReady, setDataIsReadyFun, filteredFavList, setFilteredFavListFun
         }}>
             {children}
         </AuthContext.Provider>

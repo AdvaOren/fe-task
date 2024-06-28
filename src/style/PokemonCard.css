@@ -17,11 +17,12 @@
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
-    color: var(--text-color)
+    color: var(--text-color);
+    width: 10vw;
 }
 
 .pokemonCardImage {
-    width: 8vw;
+    width: 6vw;
     object-fit: contain;
 }
 
