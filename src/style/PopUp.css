@@ -1,0 +1,17 @@
+.popUpContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 30vh;
+    width: 50vh;
+    background-color: white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#popUpModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}

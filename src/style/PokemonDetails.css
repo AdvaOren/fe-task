@@ -2,15 +2,13 @@
     display: flex;
     flex-direction: row;
     justify-content: start;
-
 }
 
 #pokemovInfo h2, .modal-title {
     font-weight: bold;
     color: var(--blue-color);
-    
-    
 }
+
 .modal-footer{
     display: flex;
     justify-content: center;
@@ -43,10 +41,6 @@
     background-color: var(--blue-color-opacity);
     padding-left: 5px;
     padding-right: 5px;
-
-
-
-
 }
 
 .custom-modal-dialog {
@@ -67,6 +61,7 @@
     width: 15vw !important;
     z-index: 0;
 }
+
 #pok {
     position: absolute;
     width: 13vw !important;

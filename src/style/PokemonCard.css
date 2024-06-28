@@ -4,6 +4,7 @@
     display: flex;
     flex-wrap: wrap;
 }
+
 .pokemonCardHeader {
     display: flex;
     margin: 10px;
@@ -17,7 +18,6 @@
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
     color: var(--text-color)
-    
 }
 
 .pokemonCardImage {
@@ -32,8 +32,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); 
 }
 
-
-
 /* Show the sparkling frame on hover */
 .pokemonCardHeader:hover::before {
     opacity: 1;
@@ -45,17 +43,3 @@
     border-top: 1px solid #ddd;
     margin: 0;
   }
-  
-
-/* Keyframes for the sparkling animation */
-@keyframes sparkle {
-    0% {
-        border-image-source: linear-gradient(45deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 75%);
-    }
-    50% {
-        border-image-source: linear-gradient(45deg, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 25%);
-    }
-    100% {
-        border-image-source: linear-gradient(45deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 75%);
-    }
-}

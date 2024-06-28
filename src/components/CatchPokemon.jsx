@@ -1,48 +1,30 @@
-import React, { useContext } from 'react';
 import { removeCaughtPokemon } from '../services/favorites.service';
-import { AuthContext } from '../AuthContext';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
-// function CaughtModal({ isCaught, showModal, handleClose }) {
-//   return (
-//     <div className={`caughtModal fade ${showModal ? 'show' : ''}`} style={{ display: showModal ? 'block' : 'none' }} role="dialog">
-//       <div className="modal-dialog" role="document">
-//         <div className="modal-content">
-//           <div className="modal-header">
-//             <h5 className="modal-title">{isCaught ? 'Caught!' : 'Not caught!'}</h5>
-//             <button type="button" className="close" onClick={handleClose}>
-//               <span>&times;</span>
-//             </button>
-//           </div>
-//           <div className="modal-body">
-//             <p>{isCaught ? 'You have successfully caught the Pokémon!' : 'The Pokémon escaped. Try again!'}</p>
-//           </div>
-//           <div className="modal-footer">
-//             <button type="button" className="btn btn-secondary" onClick={handleClose}>
-//               Close
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//       <div className="modal-backdrop fade show" style={{ display: showModal ? 'block' : 'none' }}></div>
-//     </div>
-//   );
-// }
-
-export const attemptCatch = () => {
+/**
+ * attemptCatch
+ * Simulates an attempt to catch a Pokémon with a 50% success rate.
+ * @returns {Promise<boolean>} - A promise that resolves to true if the Pokémon is caught, otherwise false.
+ */
+export const attemptCatch = async() => {
   return new Promise((resolve) => {
+    // Simulate a network delay of 1 second
     setTimeout(() => {
-      const success = Math.random() > 0.5; // 50% chance to catch the Pokémon
+      const num = Math.random();
+      const success = num > 0.5; 
       resolve(success);
-    }, 1000); // Simulate network delay
+    }, 1000); 
   });
 };
 
+/**
+ * removePokemon
+ * Handles the removal of a Pokémon from the favorites list.
+ * @param {number} pokemonId - The ID of the Pokémon to be removed.
+ * @param {function} removeItemFromFavList - A function that removes the Pokémon from the local favorites list.
+ * @returns {Promise<void>}
+ */
 export const removePokemon = async (pokemonId, removeItemFromFavList) => {
+  $('#myModal').modal('hide'); // Close the Details Modal 
   await removeCaughtPokemon(pokemonId);
   removeItemFromFavList(pokemonId);
 };
-
-
-
-// export default CaughtModal;

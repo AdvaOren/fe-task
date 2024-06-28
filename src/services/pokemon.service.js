@@ -1,7 +1,13 @@
+// Constants
 const API_URL = 'https://pokeapi.co/api/v2/pokemon/';
 
+/**
+ * getPokemons
+ * Fetches the list of Pokémon from the API.
+ * @returns {Promise<object>} - A promise that resolves to the JSON response containing the list of Pokémon.
+ * @throws {Error} - Throws an error if the fetch request fails.
+ */
 export async function getPokemons() {
-  // Fetch the list of pokemons from the API
   const response = await fetch(`${API_URL}`);
   if (!response.ok) {
     throw new Error('Failed to fetch Pokémon data');
@@ -9,9 +15,16 @@ export async function getPokemons() {
   return await response.json();
 }
 
+/**
+ * getPokemonDetailsByURL
+ * Fetches the Pokémon details according to the URL given in the list of Pokémon.
+ * Transforms the data to include only the id, name, relevant sprites,
+ *  types, weight, height, and abilities.
+ * @param {string} url - The URL to fetch the Pokémon details from.
+ * @returns {Promise<object>} - A promise that resolves to the JSON response containing the Pokémon details.
+ * @throws {Error} - Throws an error if the fetch request fails.
+ */
 export async function getPokemonDetailsByURL(url) {
-  // Fetch the pokemon details from according to the url given in the list of pokemons
-  // Transform the data to only include to include only the id, name, relevant sprites, types, weight, height, and abilities.
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error('Failed to fetch Pokémon details');
@@ -19,13 +32,3 @@ export async function getPokemonDetailsByURL(url) {
   return await response.json();
 }
 
-// pokemon.service.js
-
-
-export const fetchPokemons = async (limit = 20, offset = 0) => {
-  
-};
-
-export const fetchPokemonDetails = async (url) => {
-  
-};

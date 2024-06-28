@@ -19,8 +19,8 @@
     border: none;       
     outline: none;      
     padding: 0.5rem 1rem; 
-    background-color: #eaecee; 
-    color: rgb(89, 88, 88);      
+    background-color: var(--light-gray-color); 
+    color: var(--text-color-light-gray);      
     border-radius: 5px; 
     font-size: 1rem; 
     margin-right: 15px;

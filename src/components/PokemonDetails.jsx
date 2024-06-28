@@ -1,38 +1,64 @@
-import { useContext, useEffect, useState } from "react";
+// React and Hooks
+import { useContext, useState } from "react";
+
+// Contexts
 import { AuthContext } from "../AuthContext";
-import "../style/PokemonDetails.css";
-import { addFavorite, isFavorite } from "../services/favorites.service";
+
+// Services
+import { addFavorite } from "../services/favorites.service";
 import { attemptCatch, removePokemon } from './CatchPokemon.jsx';
+
+// Assets
 import circleBackground from '../assets/circle.jpg';
 
-function PokemonDetails() {
-  const { pokemonPressed, addItemToFavList, removeItemFromFavList } = useContext(AuthContext);
-  // const [isCaught, setIsCaught] = useState(false);
-  // const [attemptingCatch, setAttemptingCatch] = useState(false);
-  // const [showModal, setShowModal] = useState(false);
+// Components
+import PopUp from "./PopUp.jsx";
 
-  // useEffect(() => {
-  //   (async () => {
-  //     console.log("pokemonPressed", p);
-  //     setFavorite(await isFavorite(p));
-  //   })();
-  // }, [])
+// Styles
+import "../style/PokemonDetails.css";
+
+/**
+ * PokemonDetails
+ * A component that displays detailed information about a selected Pokémon.
+ * It handles catch attempts and displays a popup with the result.
+ * @returns {JSX.Element} - The JSX code to render the Pokémon details and catch functionality.
+ */
+function PokemonDetails() {
+  const { pokemonPressed, addItemToFavList, removeItemFromFavList, incrementCatchAttempts } = useContext(AuthContext);
+  
+  // State to manage the text displayed in the popup
+  const [pokemonCaughtText, setPokemonCaughtText] = useState('');
+
   const handleCatchAttempt = async () => {
-    const success = attemptCatch();
-    if (success) {
-      // setIsCaught(true);
-      await addFavorite(pokemonPressed);
-      addItemToFavList(pokemonPressed);
+    //handle the attempt to catch a Pokémon.  Displays a popup with the result of the attempt.
+    $('#myModal').modal('hide'); // Close Details Modal
+    let popUpText = ''
+    if (pokemonPressed.catchAttempts >= 2) {
+      popUpText = "Sorry, you have reached the maximum number of attempts.\n Try again later"
+    } else {
+      incrementCatchAttempts(pokemonPressed.id);
+      const success = await attemptCatch();
+      if (success) {
+        await addFavorite(pokemonPressed);
+        addItemToFavList(pokemonPressed);
+        popUpText = "Caught!"
+      }
+      else {
+        popUpText = "Sorry, you couldn't catch the pokemon.\n Try again!"
+      }
     }
+    setPokemonCaughtText(popUpText);
+    $('#popUpModal').modal('show');
+    await new Promise(resolve => setTimeout(resolve, 4000));
+    setPokemonCaughtText('');
+    $('#popUpModal').modal('hide'); // Close Pop Up Modal
   };
 
-  // const handleClose = () => {
-  //   setShowModal(false);
-  // };
   return (
     <>
       {pokemonPressed &&
         <>
+          <PopUp text={pokemonCaughtText} />
           <div className="modal fade" id="myModal" role="dialog">
             <div className="modal-dialog custom-modal-dialog">
               <div className="modal-content">
@@ -47,7 +73,6 @@ function PokemonDetails() {
                     <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", marginRight: "10px" }}>
                       <img id="pok" src={pokemonPressed.sprites.front_default} alt={pokemonPressed.name} />
                       <img id="pokBackground" src={circleBackground} alt="circle" />
-
                     </div>
                     <div>
                       <h2>pokemon info</h2>
@@ -55,7 +80,6 @@ function PokemonDetails() {
                         <div>
                           <p><strong>Name:</strong> {pokemonPressed.name}</p>
                           <p><strong>Abillities:</strong> <br></br>
-                            {/* <div className="infoBlocks">{pokemonPressed.abilities.map(({ ability }, indx) => (<span key={indx}>{ability.name}</span >))}</div> */}
                           </p>
                           <div className="infoBlocks">
                             {pokemonPressed.abilities.map(({ ability }, indx) => (
@@ -77,10 +101,15 @@ function PokemonDetails() {
                     </div>
                   </div>
                   <div className="modal-footer">
-                    <button type="button" className="btn btn-default" data-dismiss="modal">
+                    <button
+                      type="button"
+                      className="btn btn-default"
+                      data-dismiss="modal">
                       Back to List
                     </button>
-                    <button type="button" className="btn btn-default" data-dismiss="modal"
+                    <button
+                      type="button"
+                      className="btn btn-default"
                       onClick={pokemonPressed && pokemonPressed.favorite ? () => removePokemon(pokemonPressed.id, removeItemFromFavList) : handleCatchAttempt}>
                       {pokemonPressed && pokemonPressed.favorite ? 'Remove' : "Catch!"}
                     </button>
@@ -89,14 +118,10 @@ function PokemonDetails() {
               </div>
             </div>
           </div>
-
         </>
       }
-
     </>
-
   );
-
 }
 
 export default PokemonDetails;
