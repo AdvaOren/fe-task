@@ -10,8 +10,8 @@ Pokedex App is a React-based application that allows users to browse, search, an
 - **Search Pokémon**: Search for Pokémon by name.
 - **Filter by Type**: Filter Pokémon by type (e.g., Grass, Poison, Flying, etc.).
 - **View Details**: Click on a Pokémon to view detailed information.
-- **Catch Pokémon**: Attempt to catch Pokémon and add them to your favorites.
-- **Favorite Management**: View and manage your list of favorite Pokémon.
+- **Catch Pokémon**: Attempt to catch Pokémon and add them to your favorites. Each Pokémon can only be caught twice.
+- **Favorite Management**: View and manage your list of favorite Pokémon, including removing Pokémon from the favorites list.
 - **Responsive Design**: The app is designed to be responsive and user-friendly.
 
 ## Technologies Used
