@@ -14,11 +14,11 @@ Pokedex App is a React-based application that allows users to browse, search, an
 - **View Details**: Click on a Pokémon to view detailed information.
  ![image](https://github.com/AdvaOren/pokedex-app/assets/63063885/38bceefa-e677-439a-861f-8382422f7d2f)
 
-- **Catch Pokémon**: Attempt to catch Pokémon and add them to your favorites. Each Pokémon can only be caught twice.
+- **Catch Pokémon**: Attempt to catch Pokémon and add them to your favorites. Each Pokémon can only be caught twice.<br>
   ***Success:***
   ![image](https://github.com/AdvaOren/pokedex-app/assets/63063885/d12844a5-dd37-4b27-b230-0e0221388fb3)
   ![image](https://github.com/AdvaOren/pokedex-app/assets/63063885/de458262-1124-46dc-8576-2f9d9d78f223)
-
+<br>
   ***Failure:***
   ![image](https://github.com/AdvaOren/pokedex-app/assets/63063885/329742e3-b1f5-4424-af85-b88fae54551e)
 
