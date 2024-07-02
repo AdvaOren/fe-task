@@ -4,13 +4,24 @@
 
 Pokedex App is a React-based application that allows users to browse, search, and manage their favorite Pokémon. Users can view details of individual Pokémon, attempt to catch them, and add them to their list of favorites. The app leverages the Pokémon API for fetching Pokémon data and uses local storage to persist the user's favorite Pokémon.
 
+![image](https://github.com/AdvaOren/pokedex-app/assets/63063885/50483ff6-c51d-4fbc-99e5-66615a413b94)
+
 ## Features
 
 - **Browse Pokémon**: View a list of Pokémon fetched from the Pokémon API.
 - **Search Pokémon**: Search for Pokémon by name.
 - **Filter by Type**: Filter Pokémon by type (e.g., Grass, Poison, Flying, etc.).
 - **View Details**: Click on a Pokémon to view detailed information.
+ ![image](https://github.com/AdvaOren/pokedex-app/assets/63063885/38bceefa-e677-439a-861f-8382422f7d2f)
+
 - **Catch Pokémon**: Attempt to catch Pokémon and add them to your favorites. Each Pokémon can only be caught twice.
+  ***Success:***
+  ![image](https://github.com/AdvaOren/pokedex-app/assets/63063885/d12844a5-dd37-4b27-b230-0e0221388fb3)
+  ![image](https://github.com/AdvaOren/pokedex-app/assets/63063885/de458262-1124-46dc-8576-2f9d9d78f223)
+
+  ***Failure:***
+  ![image](https://github.com/AdvaOren/pokedex-app/assets/63063885/329742e3-b1f5-4424-af85-b88fae54551e)
+
 - **Favorite Management**: View and manage your list of favorite Pokémon, including removing Pokémon from the favorites list.
 - **Responsive Design**: The app is designed to be responsive and user-friendly.
 
